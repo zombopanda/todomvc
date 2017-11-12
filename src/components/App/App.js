@@ -22,7 +22,7 @@ export default class App extends Component {
               )}
             </ul>
           </section>
-          <Footer/>
+          {todoStore.todos.length > 0 && <Footer/>}
         </div>
       </section>
     );

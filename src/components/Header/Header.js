@@ -6,7 +6,7 @@ import {observer} from "mobx-react"
 @observer
 export default class Header extends Component {
   onKeyDown(e) {
-    if (e.keyCode === 13) {
+    if (todoStore.newTodo && e.keyCode === 13) {
       todoStore.addTodo(todoStore.newTodo);
       todoStore.newTodo = '';
     }
@@ -18,7 +18,8 @@ export default class Header extends Component {
 
   render() {
     return (
-      <header className="header"><h1>todos</h1>
+      <header className="header">
+        <h1>todos</h1>
         <input className="new-todo" placeholder="What needs to be done?"
                onKeyDown={this.onKeyDown}
                onChange={this.onChange}
