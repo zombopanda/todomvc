@@ -24,7 +24,7 @@ export default class TodoItem extends Component {
     return (
       <li className={cn({'completed': todo.completed})}>
         <div className="view">
-          <input className="toggle" type="checkbox" onClick={() => this.complete(todo)}/>
+          <input className="toggle" type="checkbox" checked={todo.completed} onChange={() => this.complete(todo)}/>
           <label>{todo.title}</label>
           <button className="destroy" onClick={() => this.destroy(todo)}/>
         </div>
