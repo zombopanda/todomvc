@@ -17,7 +17,7 @@ export default class App extends Component {
           <section className="main">
             <input className="toggle-all" type="checkbox"/>
             <ul className="todo-list">
-              {todoStore.todos.map(todo =>
+              {todoStore.filteredTodos.map(todo =>
                 <TodoItem key={todo.id} todo={todo}/>
               )}
             </ul>
