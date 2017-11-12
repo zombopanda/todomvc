@@ -20,15 +20,23 @@ class TodoStore {
   }
 
   @computed get filteredTodos() {
-    if (this.filter === 'completed') {
-      return this.todos.filter(todo => todo.completed);
-    }
+    return this.todos.filter(todo => {
+      let match = true;
 
-    if (this.filter === 'active') {
-      return this.todos.filter(todo => !todo.completed);
-    }
+      if (this.filter === 'completed') {
+        match = todo.completed;
+      }
 
-    return this.todos;
+      if (this.filter === 'active') {
+        match = !todo.completed;
+      }
+
+      if (this.newTodo) {
+        match = match && todo.title.match(this.newTodo);
+      }
+
+      return match;
+    });
   }
 
   @computed get todosLeft() {
