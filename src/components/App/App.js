@@ -11,20 +11,25 @@ import Header from "../Header/Header";
 export default class App extends Component {
   render() {
     return (
-      <section className="todoapp">
-        <div>
-          <Header/>
-          <section className="main">
-            <input className="toggle-all" type="checkbox"/>
-            <ul className="todo-list">
-              {todoStore.filteredTodos.map(todo =>
-                <TodoItem key={todo.id} todo={todo}/>
-              )}
-            </ul>
-          </section>
-          {todoStore.todos.length > 0 && <Footer/>}
-        </div>
-      </section>
+      <div>
+        <section className="todoapp">
+          <div>
+            <Header/>
+            <section className="main">
+              <input className="toggle-all" type="checkbox"/>
+              <ul className="todo-list">
+                {todoStore.filteredTodos.map(todo =>
+                  <TodoItem key={todo.id} todo={todo}/>
+                )}
+              </ul>
+            </section>
+            {todoStore.todos.length > 0 && <Footer/>}
+          </div>
+        </section>
+        <footer className="info">
+          <p>Double-click to edit a todo</p>
+        </footer>
+      </div>
     );
   }
 }

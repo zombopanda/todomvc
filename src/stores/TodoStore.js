@@ -10,7 +10,8 @@ class TodoStore {
     this.todos.push({
       id: uuid(),
       title,
-      completed: false
+      completed: false,
+      editing: false
     });
   }
 
